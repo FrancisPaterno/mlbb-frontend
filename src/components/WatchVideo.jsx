@@ -20,9 +20,15 @@ class WatchVideo extends Component {
         const part = 'snippet';
         const url = `?part=${part}&id=${videoId}&key=${this.state.apiKey}`;
         videobaseapi.get(url).then(res=>{
-            const snippet = res.data.items[0].snippet;
-            this.setState({snippet:snippet});
-            console.log('video details',snippet);
+            if(res.data.items[0]){
+                const snippet = res.data.items[0].snippet;
+                this.setState({snippet:snippet});
+                console.log('video details',snippet);
+            }
+            else{
+                alert('Invalid video id.');
+                this.goBack();
+            }
         })
        
     }
@@ -56,7 +62,7 @@ class WatchVideo extends Component {
                                 <h6 className="card-subtitle text-secondary">{this.state.snippet.channelTitle}</h6>
                             </div>
                             <div className="card-body d-flex flex-column">
-                                <iframe title="heroVideo" width="100%" height="300rem" src={videoUrl} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                <iframe className="heroVideo" title="heroVideo" width="100%" height="300rem" src={videoUrl} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                 <span>Description:</span>
                                 <strong>{this.state.snippet.description}</strong>
                                 <span>Tags:</span>

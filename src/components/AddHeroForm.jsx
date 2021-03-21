@@ -52,7 +52,6 @@ class AddHeroForm extends Component {
 
     saveHero = (event)=>{
         event.preventDefault();
-        
         let hero = {
                     name:this.state.name,
                     code:this.state.code,
@@ -114,7 +113,7 @@ class AddHeroForm extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3">
-                            <h3 className="text-center">{this.getTitle()}</h3>
+                            <h3 className="text-center form-title">{this.getTitle()}</h3>
                             <span className="text-danger text-center">{this.state.error }</span>
                             <div className="card-body">
                                 <ValidatorForm ref="form" onSubmit={this.saveHero} onError={errors=>console.log(errors)}>
@@ -147,7 +146,7 @@ class AddHeroForm extends Component {
                                         placeholder="Enter youtube video id  ," onChange={this.changeVideoIdHandler}/>
                                     </div>
                                     <div className="d-flex justify-content-end">
-                                    <button  type="submit" className="btn btn-success" >Save</button>
+                                    <button  type="submit" className="btn btn-success save" >Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} 
                                     style={{marginLeft:"10px"}}>Cancel</button>
                                     </div>

@@ -122,7 +122,7 @@ class ListHeroes extends Component {
                 
                 
                 <div className="row d-flex justify-content-end mb-2">
-                    <button className="btn btn-primary" onClick={this.addHero}>Add Hero</button>
+                    <button id="btn-add" className="btn btn-primary" onClick={this.addHero}>Add Hero</button>
                 </div>
                 <div className="row">
                     <button className="caption text-lowercase btn btn-outline-secondary m-1" onClick={this.sortByName}>Sort by Name</button>
@@ -145,7 +145,7 @@ class ListHeroes extends Component {
                             this.state.heroes.map(
                                 hero=>
                                 <tr key={hero.id}>
-                                    <td>{hero.name}</td>
+                                    <td className="hname">{hero.name}</td>
                                     <td>{hero.code}</td>
                                     <td>{hero.role}</td>
                                     <td>{hero.specialty}</td>
